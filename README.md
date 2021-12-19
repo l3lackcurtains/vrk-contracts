@@ -1,5 +1,11 @@
 # Token and Swap
 
+## Environmental Variables
+
+- **ROPSTEN_URL**: RPC URL to connect to ropsten network
+- **PRIVATE_KEY**: Private key of deployer
+- **ETHERSCAN_API_KEY**: Etherscan API key for contract verification
+
 ## Contracts
 
 - Network: Ropsten Network
