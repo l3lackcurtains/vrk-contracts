@@ -6,7 +6,7 @@ describe("Token Deployment and Swap Test", async function () {
   let token: Contract;
   let swap: Contract;
   let owner: Signer;
-  const exchangeRate: number = 500;
+  let exchangeRate: number = 400;
 
   // Get signer
   before(async function () {
@@ -28,6 +28,9 @@ describe("Token Deployment and Swap Test", async function () {
 
     // Check contract owner
     expect(await swap.owner()).to.equal(await owner.getAddress());
+
+    // Update exchange rate
+    exchangeRate = parseInt(await swap.exchangeRate());
   });
 
   it("Transfer all tokens to swap contract", async function () {
@@ -46,8 +49,7 @@ describe("Token Deployment and Swap Test", async function () {
     // Get swapped amount
     const tokenAfterSwap = parseFloat(
       (swapValue * exchangeRate).toString()
-    ).toFixed(18);
-
+    ).toFixed(18); // 50 VRK
     await swap.swapEthToToken({ value: amount });
 
     // token balance after swap
@@ -91,11 +93,11 @@ describe("Token Deployment and Swap Test", async function () {
     const ownerTokenBalanceFormatted =
       ethers.utils.formatEther(ownerTokenBalance);
 
+    // Swap should be this value
+    const swapToBe = parseFloat(ownerOldTokenBalanceFormatted) - swapValue;
     // Check reduced token balance with balance after swap
     expect(parseFloat(ownerTokenBalanceFormatted).toFixed(18)).to.equal(
-      parseFloat(
-        (parseFloat(ownerOldTokenBalanceFormatted) - swapValue).toString()
-      ).toFixed(18)
+      parseFloat(swapToBe.toString()).toFixed(18)
     );
   });
 });

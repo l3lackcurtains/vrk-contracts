@@ -3,7 +3,7 @@
 ## Environmental Variables
 
 - **ROPSTEN_URL**: RPC URL to connect to ropsten network
-- **PRIVATE_KEY**: Private key of deployer
+- **PRIVATE_KEY**: Private key of the deployer
 - **ETHERSCAN_API_KEY**: Etherscan API key for contract verification
 
 ## Contracts
@@ -12,7 +12,7 @@
 - Token (VRK): 0x12102898F38Ab89F5e60d5FBE1084De476d673E7
 - Swap: 0xADC258CFbd2Ce0E03cDf25267Bf0b4b25B22D37A
 
-## Deployment & Manual Test
+## Deployment and Usage
 
 ### Step 1: Compile, deploy token and verify.
 
@@ -32,9 +32,9 @@ npx hardhat run ./scripts/deploy-swap.ts --network ropsten
 npx hardhat verify --network ropsten <swap_address> <token_address>
 ```
 
-### Step 3: Transfer 100% token from token creator to Swap contract
+### Step 3: Transfer token from token creator to Swap contract
 
-Transfer all token to Swap contract
+- Transfer all or certain tokens to Swap contract
 
 ### Step 4: Swap Ether to Token
 
