@@ -1,6 +1,6 @@
 # Token and Swap
 
-## Environmental Variables
+## Environment Variables
 
 - **ROPSTEN_URL**: RPC URL to connect to ropsten network
 - **PRIVATE_KEY**: Private key of the deployer
