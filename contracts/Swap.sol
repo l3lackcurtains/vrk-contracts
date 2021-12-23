@@ -61,7 +61,7 @@ contract Swap {
         uint256 ethValue = _value.div(exchangeRate);
         // Check allowance and balance
         require(
-            token.allowance(msg.sender, address(this)) >= ethValue,
+            token.allowance(msg.sender, address(this)) >= _value,
             "No allowance"
         );
         require(
